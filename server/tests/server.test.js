@@ -4,12 +4,14 @@ const request = require('supertest');
 const {app} = require('./../server');
 const {Todo} = require('./../models/todo')
 
+//Adding to the database
 const todos = [{
     text: 'First test todo'
 }, {
     text: 'Second test todo'
 }];
 
+//Deletes from the database then add a new one
 beforeEach((done) => {
     Todo.remove({}).then(() => {
         return Todo.insertMany(todos);
